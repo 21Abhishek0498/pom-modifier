@@ -43,6 +43,11 @@
 			<version>3.8.4</version> <!-- Use the same version as maven-model -->
 		</dependency>
 		<dependency>
+			<groupId>org.apache.maven.shared</groupId>
+			<artifactId>maven-invoker</artifactId>
+			<version>3.0.1</version> <!-- Use the latest version available -->
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
