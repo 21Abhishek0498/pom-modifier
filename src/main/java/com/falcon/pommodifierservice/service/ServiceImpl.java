@@ -34,17 +34,17 @@ public class ServiceImpl {
         return reader.read(new FileReader(path));
     }
 
-    public void checkAndAddDependencies(){
+    public void checkAndAddDependencies() {
 
 
     }
 
 
-    public boolean isDependencyPresent(String groupId, String artifactId,String path) throws Exception {
+    public boolean isDependencyPresent(String groupId, String artifactId, String path) throws Exception {
         return isDependencyPresentInPom(readModel(path), groupId, artifactId);
     }
 
-    public void addDependencyToPom(String groupId, String artifactId, String version,String path) throws Exception {
+    public void addDependencyToPom(String groupId, String artifactId, String version, String path) throws Exception {
         addDependencyToModel(readModel(path), groupId, artifactId, version);
         writeModel(readModel(path), path);
     }
@@ -52,10 +52,10 @@ public class ServiceImpl {
     public void mavenBuild(String path) throws Exception {
         InvocationRequest request = new DefaultInvocationRequest();
         request.setPomFile(new File(path, "pom.xml"));
-        request.setGoals(Arrays.asList("clean", "install")); // Specify Maven goals
+        request.setGoals(Arrays.asList("clean", "install"));
 
         Invoker invoker = new DefaultInvoker();
-        invoker.setMavenHome(new File(System.getenv("M2_HOME"))); // Set Maven home directory
+        invoker.setMavenHome(new File(System.getenv("M2_HOME")));
 
         InvocationResult result = invoker.execute(request);
 
@@ -67,9 +67,6 @@ public class ServiceImpl {
             System.out.println("Maven build completed successfully.");
         }
     }
-
-
-
 
 
     private void writeModel(Model model, String path) throws Exception {
