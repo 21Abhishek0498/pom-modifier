@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maven Build Result</title>
+</head>
+<body>
+<h2>Maven Build Result</h2>
+
+<div th:if="${result}">
+    <!-- Display result data if available -->
+    <h3>Result:</h3>
+    <ul>
+        <li th:each="entry : ${result.entrySet()}" th:text="${entry.key + ': ' + entry.value}"></li>
+    </ul>
+</div>
+
+<div th:if="${error}">
+    <!-- Display error message if an error occurred -->
+    <h3>Error:</h3>
+    <p th:text="${error}"></p>
+</div>
+</body>
+</html>

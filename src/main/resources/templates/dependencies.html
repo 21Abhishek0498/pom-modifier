@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dependencies Page</title>
+</head>
+<body>
+<h1>Dependencies</h1>
+
+<div th:if="${dependencies}">
+    <h2>Java and Spring Version</h2>
+    <ul>
+        <li th:each="dependency : ${dependencies}">
+            <span th:text="${dependency.key}"></span>: <span th:text="${dependency.value}"></span>
+        </li>
+    </ul>
+</div>
+
+<div th:unless="${dependencies}">
+    <p>No dependencies available.</p>
+</div>
+</body>
+</html>
